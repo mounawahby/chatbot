@@ -1,3 +1,5 @@
 # chatbot
 
-Le but de ce chatbot est de lister les films d'un acteur/une actrice donn�(e).
+The aim of our chatbot is to help answer people's questions regarding Coronavirus.
+
+Le but de ce chatbot est de répondre aux questions liées aux Coronavirus.
