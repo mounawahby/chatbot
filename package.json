@@ -16,5 +16,8 @@
   "bugs": {
     "url": "https://github.com/mounawahby/chatbot/issues"
   },
-  "homepage": "https://github.com/mounawahby/chatbot#readme"
+  "homepage": "https://github.com/mounawahby/chatbot#readme",
+  "dependencies": {
+    "express": "^4.17.1"
+  }
 }
