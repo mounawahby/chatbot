@@ -9,9 +9,14 @@
                 <p class="lead">Entrez le nom de vos acteurs préférés et récupérez la liste de leurs films.</p>
                 <hr class="my-4">
                 <div class="input-group mb-3">
-                    <input type="text" class="form-control" placeholder="Le nom d'un acteur/une actrice" aria-label="Name" aria-describedby="basic-addon2">
+                    <input type="text" id="input" class="form-control" placeholder="Le nom d'un acteur/une actrice" aria-label="Name" aria-describedby="basic-addon2">
                 </div>
-                <button type="button" class="btn btn-info">Demander</button>
+                <div id="send"> <button type="button" class="btn btn-info">Demander</button></div>
+               
+
+                <div id="response">
+                    <span></span>
+                </div>
             </div>
         </div>
 
@@ -20,6 +25,9 @@
 
     <script 
     src="/js/bootstrap.min.js"></script>
+
+    <script 
+    src="/js/responses.js"></script>
 
     </body>
 </html>
