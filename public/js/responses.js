@@ -1,6 +1,6 @@
 $( "#send" ).click(function() {
     
-    var t=$('#input').get(0);
+    var t=$('#input').val();
     $('#response span').text(t.split("").reverse().join(""));
 
   });
