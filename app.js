@@ -2,6 +2,7 @@ const express = require('express');
 const chalk = require('chalk');
 const path = require('path');
 const bodyParser = require('body-parser');
+const actors = require('./src/routes/actors');
 
 var app = express();
 app.use(express.static(path.join(__dirname, 'public')))
@@ -14,7 +15,9 @@ app.get('/', function(req, res){
 });
 
 app.post('/Question', function(req, res){
-    res.send("Reponse du serveur " + req.body.question);
+    const actorName = req.body.question;
+    const actor = actors.find(item => item.Name = actorName);
+    res.send("Reponse du serveur " + actor.Movies[0]);
 });
 
 app.listen(3000, function(){
