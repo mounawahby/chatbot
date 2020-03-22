@@ -1,6 +1,6 @@
 $( "#send" ).click(function() {
-    $.post("Question", {"question" : $('#input').val()}).done(function( data ) {
+    $.post("Question", {"question" : $('#input').val()}).done(function( dd ) {
       
-      $('#response span').text(data.split("").reverse().join(""));
+      $('#response span').text(dd.split("").reverse().join(""));
     });
   });

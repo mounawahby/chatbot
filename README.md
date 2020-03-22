@@ -1,3 +1,9 @@
 # chatbot
 
-Le but de ce chatbot est de lister les films associés à un acteur/une actrice donné.
+Le but de ce chatbot est de lister les films associï¿½s ï¿½ un acteur/une actrice donnï¿½.
+
+# steps
+
+1-cloner le repo
+2-npm install
+3npm start
