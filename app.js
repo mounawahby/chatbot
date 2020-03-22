@@ -16,8 +16,10 @@ app.get('/', function(req, res){
 
 app.post('/Question', function(req, res){
     const actorName = req.body.question;
-    const actor = actors.find(item => item.Name = actorName);
-    res.send("Reponse du serveur " + actor.Movies[0]);
+    const actor = actors.find(item => item.Name == actorName);
+    console.info(actor);
+    const movies = actor.Movies;
+    res.send("Reponse du serveur " + movies[0]);
 });
 
 app.listen(3000, function(){
