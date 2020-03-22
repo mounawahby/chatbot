@@ -5,5 +5,7 @@ Le but de ce chatbot est de lister les films associ�s � un acteur/une actric
 # steps
 
 1-cloner le repo
+
 2-npm install
-3npm start
+
+3-npm start
