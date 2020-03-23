@@ -9,10 +9,12 @@ app.use(express.static(path.join(__dirname, 'public')))
 
 app.use(bodyParser.urlencoded());
 app.use(bodyParser.json());
-app.set('views','./src/views');
-app.set('view engine','ejs');
+
+
 app.get('/', function(req, res){
     res.sendFile(path.join(__dirname, 'views', 'index.html'));
+   
+
 });
 
 app.post('/Question', function(req, res){
@@ -20,7 +22,12 @@ app.post('/Question', function(req, res){
     const actor = actors.find(item => item.Name == actorName);
     console.info(actor);
     const movies = actor.Movies;
-    res.send("Reponse du serveur " + movies[0]);
+   
+        res.send(movies);
+      
+    
+   // res.render('index', {liste:['a','b'],title:'ttt'});
+
 });
 
 app.listen(3000, function(){
