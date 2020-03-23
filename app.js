@@ -23,11 +23,16 @@ app.post('/Question', function(req, res){
     const actor = actors.find(item => item.Name == actorName);
     
     if (actor != null){
+
+        // 1er cas : il y a une correspondance
         console.info(actor);
         const movies = actor.Movies;
+
+        // TODO : Envoyer du HTML
         res.send(movies);
     }else
     {
+        // 2e cas : il y a une correspondance approchante
         const options = {
             keys: ['Name']
           };
@@ -36,14 +41,13 @@ app.post('/Question', function(req, res){
         if(searchResult.length > 0){
             console.log(searchResult);
             const firstResult = searchResult[0].item;
-            console.log(firstResult);
-            console.log(firstResult.Name);
-            result = "Avez-vous voulu dire " + firstResult.Name + "?";
-        }
-    }
-    res.send("Je n'ai pas compris votre question");
-   
+            res.send("Avez-vous voulu dire <span class=actorName>" + firstResult.Name + " </span>? <span class=\"oui\">oui</span> <span class=\"non\">non</span>");
+        } else {
 
+            // 3e cas : il n'y a aucune correspondance
+            res.send("Je n'ai pas compris votre question");
+        }
+    } 
 });
 
 app.listen(3000, function(){
