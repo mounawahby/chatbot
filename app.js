@@ -42,10 +42,7 @@ app.post('/Question', function(req, res){
         }
     }
     res.send("Je n'ai pas compris votre question");
-    
-      
-    
-   // res.render('index', {liste:['a','b'],title:'ttt'});
+   
 
 });
 
