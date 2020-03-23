@@ -1,5 +1,5 @@
 
-$('#input').on("input",function(){
+$('#txtQuestion').on("input",function(){
     $("#send").attr('disabled', $(this).val().length === 0); 
 });
 
@@ -7,7 +7,7 @@ $('#input').on("input",function(){
 $( "#send" ).click(function() {
 
   
-    $.post("Question", {"question" : $('#input').val()}).done(function(data) {
+    $.post("Question", {"question" : $('#txtQuestion').val()}).done(function(data) {
       
       const items= (data+'').split(",");
       console.log(items);
