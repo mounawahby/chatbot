@@ -1,7 +1,7 @@
 
 $('#input').on("input",function(){
 
-  if($('#input').val().length === 0)
+  if($(this).val().length === 0)
   {
     $("#send").attr('disabled', true); 
   }
