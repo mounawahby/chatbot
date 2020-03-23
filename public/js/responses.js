@@ -1,14 +1,6 @@
 
 $('#input').on("input",function(){
-
-  if($(this).val().length === 0)
-  {
-    $("#send").attr('disabled', true); 
-  }
-
-  else{
-    $("#send").attr('disabled', false); 
-  }
+    $("#send").attr('disabled', $(this).val().length === 0); 
 });
 
 
