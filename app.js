@@ -8,7 +8,8 @@ app.use(express.static(path.join(__dirname, 'public')))
 
 app.use(bodyParser.urlencoded());
 app.use(bodyParser.json());
-
+app.set('views','./src/views');
+app.set('view engine','ejs');
 app.get('/', function(req, res){
     res.sendFile(path.join(__dirname, 'views', 'index.html'));
 });
