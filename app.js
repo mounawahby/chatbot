@@ -34,14 +34,16 @@ app.post('/Question', function(req, res){
     {
         // 2e cas : il y a une correspondance approchante
         const options = {
-            keys: ['Name']
+            keys: ['Name'],
+            threshold : 0.3,
+            length : 10
           };
         const fuse = new Fuse(actors, options);
         const searchResult = fuse.search(actorName);
         if(searchResult.length > 0){
             console.log(searchResult);
             const firstResult = searchResult[0].item;
-            res.send("Avez-vous voulu dire <span class=actorName>" + firstResult.Name + " </span>? <span class=\"oui\">oui</span> <span class=\"non\">non</span>");
+            res.send("Avez-vous voulu dire <span class='actorName'>" + firstResult.Name + " </span>? <span class='oui badge badge-pill badge-success'>oui</span> <span class='non badge badge-pill badge-light'>non</span>");
         } else {
 
             // 3e cas : il n'y a aucune correspondance
