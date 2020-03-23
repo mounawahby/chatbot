@@ -1,8 +1,7 @@
 
 $('#input').on("change",function(){
 
-  alert('coucou');
-  if(('#input').val().length === 0)
+  if($('#input').val().length === 0)
   {
     $("#send").attr('disabled', true); 
   }
