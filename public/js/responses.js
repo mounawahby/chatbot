@@ -9,6 +9,7 @@ $( "#send" ).click(function() {
   
     $.post("Question", {"question" : $('#txtQuestion').val()}).done(function(data) {
       
+      $('#response ul').empty();
       const items= (data+'').split(",");
       console.log(items);
       for(var i=0;i<items.length;i++)
