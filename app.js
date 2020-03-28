@@ -50,7 +50,7 @@ app.post('/Question', function(req, res){
         if(searchResult.length > 0){
             console.log(searchResult);
             const firstResult = searchResult[0].item;
-            res.send("Avez-vous voulu dire <span class='actorName'>" + firstResult.Name + "</span> ? <span class='oui badge badge-pill badge-success' data-actor='" + firstResult.Name + "'>oui</span> <span class='non badge badge-pill badge-light'>non</span>");
+            res.send("Avez-vous voulu dire <span id='actor' class='actorName'>" + firstResult.Name + "</span> ? <span id='choice' class='oui badge badge-pill badge-success' data-actor=' " + firstResult.Name + "'>oui</span> <span id='choice' class='non badge badge-pill badge-light'>non</span>");
         } else {
 
             // 3e cas : il n'y a aucune correspondance
