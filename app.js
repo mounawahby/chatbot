@@ -27,9 +27,16 @@ app.post('/Question', function(req, res){
         // 1er cas : il y a une correspondance
         console.info(actor);
         const movies = actor.Movies;
-
+        var htmlList="";
+      
+        for(var i=0;i<movies.length;i++)
+      {
+       
+        htmlList += "<li> "+ movies[i]+" </li>  ";
+      } 
+      
         // TODO : Envoyer du HTML
-        res.send(movies);
+        res.send(htmlList);
     }else
     {
         // 2e cas : il y a une correspondance approchante

@@ -12,12 +12,10 @@ $( "#send" ).click(function() {
       $('#response ul').empty();
       const items= (data+'').split(",");
       console.log(items);
-      for(var i=0;i<items.length;i++)
-      {
-       
-        $('#response ul').append("<li>"+items[i]+"</li>");
+     
+        $('#response ul').append(data);
         
-      }
+      
       
     });
   });
