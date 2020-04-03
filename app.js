@@ -12,42 +12,38 @@ app.use(bodyParser.urlencoded());
 app.use(bodyParser.json());
 
 
-app.get('/', function(req, res){
+app.get('/', function (req, res) {
     res.sendFile(path.join(__dirname, 'views', 'index.html'));
-   
+
 
 });
 
-app.post('/Question', function(req, res){
+app.post('/Question', function (req, res) {
     const actorName = req.body.question;
     const actor = actors.find(item => item.Name == actorName);
-    
-    if (actor != null){
+
+    if (actor != null) {
 
         // 1er cas : il y a une correspondance
         console.info(actor);
         const movies = actor.Movies;
-        var htmlList="";
-      
-        for(var i=0;i<movies.length;i++)
-      {
-       
-        htmlList += "<li> "+ movies[i]+" </li>  ";
-      } 
-      
-        // TODO : Envoyer du HTML
+        var htmlList = '<ul>';
+        for (var i = 0; i < movies.length; i++) {
+
+            htmlList += "<li> " + movies[i] + " </li>  ";
+        }
+        htmlList += '</ul>'
         res.send(htmlList);
-    }else
-    {
+    } else {
         // 2e cas : il y a une correspondance approchante
         const options = {
             keys: ['Name'],
-            threshold : 0.3,
-            length : 10
-          };
+            threshold: 0.3,
+            length: 10
+        };
         const fuse = new Fuse(actors, options);
         const searchResult = fuse.search(actorName);
-        if(searchResult.length > 0){
+        if (searchResult.length > 0) {
             console.log(searchResult);
             const firstResult = searchResult[0].item;
             res.send("Avez-vous voulu dire <span id='actor' class='actorName'>" + firstResult.Name + "</span> ? <span id='choice' class='oui badge badge-pill badge-success' data-actor=' " + firstResult.Name + "'>oui</span> <span id='choice' class='non badge badge-pill badge-light'>non</span>");
@@ -56,9 +52,9 @@ app.post('/Question', function(req, res){
             // 3e cas : il n'y a aucune correspondance
             res.send("Je n'ai pas compris votre question");
         }
-    } 
+    }
 });
 
-app.listen(3000, function(){
+app.listen(3000, function () {
     console.log(`listening on port ${chalk.green('3000')}`);
 });
