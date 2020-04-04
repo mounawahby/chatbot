@@ -3,18 +3,20 @@ $('#txtQuestion').on("input",function(){
     $("#send").attr('disabled', $(this).val().length === 0); 
 });
 
+function GetData(actorName){
 
-$("#send").click(function() {
-    $.post("Question", {"question" : $('#txtQuestion').val()}).done(function(data) {
-        $('#response').html(data);
-    });
+  $.post("Question", {"question" : actorName}).done(function(data) {
+      $('#response').html(data);
   });
+
+};
+  $("#send").click(function() {
+    GetData($('#txtQuestion').val());
+ });
 
   $(document).on("click", ".oui", function() {
 
     const actorName = $(this).attr('data-actor');
     console.info(actorName);
-    $.post("Question", {"question" : actorName}).done(function(data) {
-        $('#response').html(data);
-    });
+    GetData(actorName);
   });

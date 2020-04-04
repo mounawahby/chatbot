@@ -48,7 +48,13 @@ app.post('/Question', function (req, res) {
             console.log(searchResult);
             const firstResult = searchResult[0].item;
             res.send("Avez-vous voulu dire <span class='actorName'>" + firstResult.Name + "</span> ? <span class='choice oui badge badge-pill badge-success' data-actor='" + firstResult.Name + "'>oui</span> <span class='choice non badge badge-pill badge-light'>non</span>");
-        } else {
+        }
+       else if(actorName=="non") {
+
+           // 3e cas : il n'y a aucune correspondance
+           res.send("Je connais pas cet acteur!");
+        }
+         else {
 
             // 3e cas : il n'y a aucune correspondance
             res.send("Je n'ai pas compris votre question");
