@@ -4,6 +4,7 @@ const path = require('path');
 const bodyParser = require('body-parser');
 const Fuse = require('fuse.js');
 const actors = require('./src/routes/actors');
+const fs = require('fs');
 
 var app = express();
 app.use(express.static(path.join(__dirname, 'public')))
@@ -14,7 +15,8 @@ app.use(bodyParser.json());
 
 app.set('views', './src/views');
 app.set('view engine', 'ejs');
-
+var util = require('util');
+fs.writeFileSync('./data/data.json', util.inspect(actors) , 'utf-8');
 
 app.get('/', function (req, res) {
     res.sendFile(path.join(__dirname, 'views', 'index.html'));
