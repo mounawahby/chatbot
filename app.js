@@ -22,7 +22,7 @@ app.get('/', function (req, res) {
 
 
 app.get('/admin', (req, res) => {
-    res.render('admin', {Name : 'Damien'});
+    res.render('admin', { actors : actors});
 });
 
 app.post('/Question', function (req, res) {
