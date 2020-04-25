@@ -12,10 +12,17 @@ app.use(bodyParser.urlencoded());
 app.use(bodyParser.json());
 
 
+app.set('views', './src/views');
+app.set('view engine', 'ejs');
+
+
 app.get('/', function (req, res) {
     res.sendFile(path.join(__dirname, 'views', 'index.html'));
+});
 
 
+app.get('/admin', (req, res) => {
+    res.render('admin', {Name : 'Damien'});
 });
 
 app.post('/Question', function (req, res) {
