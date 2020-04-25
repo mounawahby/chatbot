@@ -16,12 +16,17 @@ app.use(bodyParser.json());
 app.set('views', './src/views');
 app.set('view engine', 'ejs');
 var util = require('util');
-fs.writeFileSync('./data/data.json', util.inspect(actors) , 'utf-8');
+
 
 app.get('/', function (req, res) {
     res.sendFile(path.join(__dirname, 'views', 'index.html'));
 });
 
+app.post('/admin', (req, res) => {
+    const content = JSON.stringify(actors);
+    console.info(content);
+    fs.writeFileSync('./data/data.json', content , 'utf-8');
+});
 
 app.get('/admin', (req, res) => {
     res.render('admin', { actors : actors});
