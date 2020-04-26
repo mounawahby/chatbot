@@ -6,20 +6,7 @@
         <h1>
             Acteurs :
         </h1>
-            <ul>
-                <%for(var i=0; i<actors.length; i++) {%>
-                    <li>
-                        <%= actors[i].Name %>
-                        <ul>
-                            <%for(var f=0; f<actors[i].Movies.length; f++) {%>
-                                <li>
-                                    <%= actors[i].Movies[f] %>
-                                </li> 
-                            <%}%>
-                        </ul>
-                    </li>
-                <%}%>
-            </ul>
+            <%- include('actorList') %>
         <form>
             <div class="form-group">
                 <label for="txtName">Name</label>
