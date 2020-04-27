@@ -2,7 +2,7 @@
     <head>
         <link rel="stylesheet" href="/css/bootstrap.css" />
     </head>
-    <body>
+    <body style="margin:10%">
         <h1>
             Acteurs :
         </h1>
@@ -26,7 +26,12 @@
     <script src="/js/jquery.min.js"></script>
     <script>
         $("#send").click(function() {
-            $.post("admin");
+            $.post("admin",
+            { 
+                Name : $("#txtName").val(),
+                Movies : $("#txtMovies").val().split(/\n/)
+            }
+              );
         });
     </script>
 </html>

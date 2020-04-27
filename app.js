@@ -23,12 +23,15 @@ app.get('/', function (req, res) {
 });
 
 app.post('/admin', (req, res) => {
+    console.info(req.body);
+    actors.push(req.body);
     const content = JSON.stringify(actors);
     console.info(content);
     fs.writeFileSync('./data/data.json', content , 'utf-8');
 });
 
 app.get('/admin', (req, res) => {
+    
     res.render('admin', { actors : actors});
 });
 

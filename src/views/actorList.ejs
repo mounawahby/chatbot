@@ -1,14 +1,15 @@
-<ul>
+
     <%for(var i=0; i<actors.length; i++) {%>
-        <li>
-            <%= actors[i].Name %>
-            <ul>
-                <%for(var f=0; f<actors[i].Movies.length; f++) {%>
-                    <li>
+        <table class="table table-striped">
+            <tr class="table-info">
+            <th><%= actors[i].Name %></th>
+            </tr>
+            <%for(var f=0; f<actors[i].Movies.length; f++) {%>
+                <tr>
+                    <td>
                         <%= actors[i].Movies[f] %>
-                    </li> 
-                <%}%>
-            </ul>
-        </li>
+                    </td>
+                </tr> 
+            <%}%>
+        </table>
     <%}%>
-</ul>
