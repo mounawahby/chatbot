@@ -6,7 +6,11 @@
         <h1>
             Acteurs :
         </h1>
+
+        <div id="ActorList">
             <%- include('actorList') %>
+        </div>
+            
         <form>
             <div class="form-group">
                 <label for="txtName">Name</label>
@@ -32,6 +36,12 @@
                 Movies : $("#txtMovies").val().split(/\n/)
             }
               );
+              RefreshActorList();
         });
+
+        function RefreshActorList()
+        {
+            $.get("admin/Actors", function(data){$("#ActorList").html(data);})
+        }
     </script>
 </html>

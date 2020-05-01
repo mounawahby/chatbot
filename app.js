@@ -35,6 +35,11 @@ app.get('/admin', (req, res) => {
     res.render('admin', { actors : actors});
 });
 
+app.get('/admin/Actors', (req, res) => {
+    
+    res.render('actorList', { actors : actors});
+});
+
 app.post('/Question', function (req, res) {
     const actorName = req.body.question;
     console.info(actorName);
