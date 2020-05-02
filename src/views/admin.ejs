@@ -1,6 +1,7 @@
 <html>
     <head>
         <link rel="stylesheet" href="/css/bootstrap.css" />
+        <link rel="stylesheet" href="/css/toast.css" />
     </head>
     <body style="margin:0 10% 0 10%">
        
@@ -44,18 +45,24 @@
             <button type="button" id="send" class="btn btn-info">Valider</button>
         </form>
 
+        <div class="box">
+        </div>
     </body>
 
     <script src="/js/jquery.min.js"></script>
     <script>
-        $("#send").click(function() {
-            $.post("admin",
-            { 
-                Name : $("#txtName").val(),
-                Movies : $("#txtMovies").val().split(/\n/)
-            }
-              );
-              RefreshActorList();
+         $("#send").click(function() {
+
+            const name = $("#txtName").val();
+        //     $.post("admin",
+        //     { 
+        //         Name : name,
+        //         Movies : $("#txtMovies").val().split(/\n/)
+        //     }
+        //       );
+                RefreshActorList();
+                var toast = '<div class="alert alert-success" role="alert">'+ name + " a été ajouté(e) avec succès</div>";
+                $(toast).hide().appendTo('.box').fadeIn(500).delay(3000).fadeOut();
         });
 
         function RefreshActorList()
