@@ -43,19 +43,20 @@ app.get('/admin/Actors', (req, res) => {
 app.post('/Question', function (req, res) {
     const actorName = req.body.question;
     console.info(actorName);
+    
     if (actorName == "/NOACTOR")
     {
         noMatchingName(res);
         return;
     }
 
-    const actor = actors.find(item => item.Name == actorName);
+    const actor = actors.find(item => item.Name.toUpperCase() == actorName.toUpperCase());
 
     if (actor != null) {
 
         // 1er cas : il y a une correspondance
         matchingCase(actor, actorName, res);
-    } else {
+    }else {
         // 2e cas : il y a une correspondance approchante
         const options = {
             keys: ['Name'],
