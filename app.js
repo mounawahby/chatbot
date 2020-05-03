@@ -95,7 +95,7 @@ function approachingCase(searchResult, res) {
 function matchingCase(actor, actorName, res) {
     console.info(actor);
     const movies = actor.Movies;
-    var htmlList = 'Voici la filmographie de <span class=\'actorName\'>' + actorName + '</span> :';
+    var htmlList = 'Voici la filmographie de <span class=\'actorName\'>' + actor.Name + '</span> :';
     htmlList += '<ul>';
     for (var i = 0; i < movies.length; i++) {
         htmlList += "<li> " + movies[i] + " </li>  ";
