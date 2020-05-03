@@ -54,11 +54,11 @@
          $("#send").click(function() {
 
             const name = $("#txtName").val();
-            // $.post("admin",
-            // { 
-            //     Name : name,
-            //     Movies : $("#txtMovies").val().split(/\n/)
-            // });
+            $.post("admin",
+            { 
+                Name : name,
+                Movies : $("#txtMovies").val().split(/\n/)
+            });
             RefreshActorList();
             var toast = '<div class="alert alert-success" role="alert">'+ name + " a été ajouté(e) avec succès</div>";
             $(toast).hide().appendTo('.box').fadeIn(500).delay(3000).fadeOut();
