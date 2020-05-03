@@ -1,15 +1,25 @@
 
+  <div id="accordion">
     <%for(var i=0; i<actors.length; i++) {%>
-        <table class="table table-striped">
-            <tr class="table-info">
-            <th><%= actors[i].Name %></th>
-            </tr>
-            <%for(var f=0; f<actors[i].Movies.length; f++) {%>
-                <tr>
-                    <td>
-                        <%= actors[i].Movies[f] %>
-                    </td>
-                </tr> 
-            <%}%>
-        </table>
+        <div class="card">
+                <button class="btn btn-info" data-toggle="collapse" data-target="#collapse<%- i %>" aria-expanded="true" aria-controls="collapseOne">
+                    <%= actors[i].Name %>
+                </button>
+        
+            <div id="collapse<%- i %>" class="collapse" data-parent="#accordion">
+              <div class="card-body">
+                <table class="table">
+                    <%for(var f=0; f<actors[i].Movies.length; f++) {%>
+                        <tr>
+                            <td>
+                                <%= actors[i].Movies[f] %>
+                            </td>
+                        </tr> 
+                    <%}%>
+                </table>
+              </div>
+            </div>
+        </div>
     <%}%>
+</div>
+   
